@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+		<link rel="dns-prefetch" href="wss://irc-ws.chat.twitch.tv/">
+		<link rel="dns-prefetch" href="https://api.twitch.tv/">
+		<link rel="dns-prefetch" href="https://clips.twitch.tv/">
+		<link rel="dns-prefetch" href="https://player.twitch.tv">
+		<script src="web/js/jquery.min.js"></script>
+		<style>
+			body { background-color: #7F0037; }
+		</style>
+	</head>
+	<body>
+		<iframe id="twitch-video"
+			src="https://player.twitch.tv/?channel=instafluff"
+			width="640"
+			height="360"
+			frameborder="0"
+			scrolling="no"
+			allowfullscreen="true"
+			muted="false">
+		</iframe>
+		<iframe frameborder="0"
+				scrolling="yes"
+				id="twitch-chat"
+				src="https://www.twitch.tv/embed/instafluff/chat?darkpopout"
+				height="360">
+		</iframe>
+		<script type="text/javascript">
+			const params = new URLSearchParams( location.search );
+			let channel = params.get( "channel" );
+			let width = params.get( "width" ) || 640;
+			let height = params.get( "height" ) || 360;
+			document.body.style.background = "#" + ( params.get( "bg" ) || "7F0037" );
+
+			if( channel ) {
+				setLiveStream( channel, width, height );
+			}
+
+			// setTimeout( function() {
+			// 	$('#instafluff').contents().find("head")
+			// 	.append($("<style type='text/css'> body { background-color: #962525 !important; } </style>"));
+			// 	console.log( "EEEEEEEEEEEEEE" );
+			// }, 5000 );
+
+			function setLiveStream( stream, width, height ) {
+				$("#twitch-video").attr( "src", "https://player.twitch.tv/?channel=" + stream );
+				$("#twitch-video").attr( "width", width );
+				$("#twitch-video").attr( "height", height );
+				$("#twitch-chat").attr( "src", `https://www.twitch.tv/embed/${stream}/chat?darkpopout` );
+				$("#twitch-chat").attr( "height", height );
+			}
+		</script>
+	</body>
+</html>

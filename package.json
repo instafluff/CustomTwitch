@@ -1,0 +1,26 @@
+{
+  "name": "customtwitch",
+  "version": "1.0.0",
+  "description": "Custom Style Page for Embedded Twitch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/instafluff/CustomTwitch.git"
+  },
+  "keywords": [
+    "Instafluff",
+    "twitch"
+  ],
+  "author": "Instafluff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/instafluff/CustomTwitch/issues"
+  },
+  "homepage": "https://github.com/instafluff/CustomTwitch#readme",
+  "dependencies": {
+    "webwebweb": "^1.1.5"
+  }
+}
